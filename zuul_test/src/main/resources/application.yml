@@ -1,0 +1,18 @@
+server:
+  port: 30086
+spring:
+  application:
+    name: zuul_test
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+  instance:
+    appname: zuul_test
+
+
+
+#zuul:
+#  routes:
+#   project1:

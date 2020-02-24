@@ -1,0 +1,22 @@
+server:
+  port: 20086
+  servletPath: /
+
+spring:
+  application:
+    name: projectA
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/
+    enabled: true
+  instance:
+    healthCheckUrlPath: ${server.servletPath}/health
+    statusPageUrlPath: ${server.servletPath}/info
+    homePageUrl: ${server.servletPath}/
+    healthcheck:
+      enabled: true
+    appname: PROJECTA_NAME
+
