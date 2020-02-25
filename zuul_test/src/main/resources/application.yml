@@ -13,6 +13,14 @@ eureka:
 
 
 
-#zuul:
-#  routes:
-#   project1:
+zuul:
+  routes:
+    projectA: /projectA/**
+  host:
+    connect-timeout-millis: 100
+    socket-timeout-millis: 100
+
+
+
+ribbon:
+  ReadTimeout: 100

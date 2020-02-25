@@ -16,4 +16,5 @@ eureka:
     eviction-interval-timer-in-ms: 10000
     delta-retention-timer-interval-in-ms: 10000
     enable-self-preservation: false
+    response-cache-update-interval-ms: 1000
 

@@ -1,4 +1,4 @@
-package cn.test;
+package cn.test.api;
 
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaClient
 @RestController
 public class Application {
-    @Value("service.port")
+    @Value("${server.port}")
     private String port;
     @Autowired
     private EurekaClient discoveryClient;
@@ -43,5 +43,12 @@ public class Application {
     public String instance() {
         InstanceInfo instanceInfo = discoveryClient.getNextServerFromEureka("TEST-EUREKA", false);
         return instanceInfo.getHomePageUrl();
+    }
+
+    @RequestMapping("/testZuul")
+    public String testZuul() {
+
+        System.out.println("路由进来了");
+        return "success";
     }
 }

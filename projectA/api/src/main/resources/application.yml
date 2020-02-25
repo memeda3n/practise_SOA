@@ -20,3 +20,6 @@ eureka:
       enabled: true
     appname: PROJECTA_NAME
 
+
+ribbon:
+  ReadTimeout: 10000
