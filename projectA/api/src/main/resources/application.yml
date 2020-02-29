@@ -12,6 +12,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:10086/eureka/
     enabled: true
+    registry-fetch-interval-seconds: 10
   instance:
     healthCheckUrlPath: ${server.servletPath}/health
     statusPageUrlPath: ${server.servletPath}/info
@@ -19,6 +20,8 @@ eureka:
     healthcheck:
       enabled: true
     appname: PROJECTA_NAME
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 20
 
 
 ribbon:
