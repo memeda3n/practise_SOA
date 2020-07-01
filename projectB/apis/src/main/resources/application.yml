@@ -1,11 +1,11 @@
 server:
-  port: 20086
+  port: 20087
   servlet:
     path: /
 
 spring:
   application:
-    name: projectA
+    name: projectB
 
 
 eureka:
