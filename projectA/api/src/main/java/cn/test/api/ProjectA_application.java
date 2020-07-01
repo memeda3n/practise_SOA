@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-public class Application {
+public class ProjectA_application {
     @Value("${server.port}")
     private String port;
     @Autowired
     private EurekaClient discoveryClient;
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ProjectA_application.class, args);
     }
 
     @RequestMapping("/hi")
