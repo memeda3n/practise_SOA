@@ -1,6 +1,7 @@
 server:
   port: 20086
-  servletPath: /
+  servlet:
+    path: /
 
 spring:
   application:
