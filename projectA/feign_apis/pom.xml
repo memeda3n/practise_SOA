@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>feign_api</artifactId>
+    <artifactId>feign_apis</artifactId>
 
 
 </project>
