@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: test-eureka
+  freemarker:
+    charset: utf-8
+    settings:
+      default_encoding: utf-8
+      output_encoding: utf-8
 eureka:
   client:
     register-with-eureka: false  #是否将自己注册到Eureka-Server中，默认的为true
@@ -12,10 +17,21 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
   instance:
     hostname: localhost
-    lease-expiration-duration-in-seconds: 20
+    #最后一个心跳之后，在达到指定时间没有心跳，删除此服务，需要比leaseRenewalIntervalInSeconds大
+    #每间隔2s，向服务端发送一次心跳，证明自己依然”存活“
+    lease-renewal-interval-in-seconds: 2
+    #告诉服务端，如果我5s之内没有给你发心跳，就代表我“死”了，将我踢出掉
+    lease-expiration-duration-in-seconds: 5
+
   server:
+    # server清理无效节点的时间间隔， 默认 60000
     eviction-interval-timer-in-ms: 5000
+    # 清理任务程序被唤醒的时间间隔，清理过期的增量信息，单位为毫秒，默认为30 * 1000
     delta-retention-timer-interval-in-ms: 10000
-    enable-self-preservation: false
+    #自我保护模式，当出现出现网络分区、eureka在短时间内丢失过多客户端时，会进入自我保护模式，即一个服务长时间没有发送心跳，eureka也不会将其删除，默认为true
+    enable-self-preservation: true
+    #缓存更新间隔
     response-cache-update-interval-ms: 1000
+
+
 
