@@ -1,30 +1,30 @@
-package cn.test.api;
+package cn.b.test.api;
+
 
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-@EnableFeignClients({"cn.test.api.*"})
-@SpringBootApplication
 @EnableEurekaClient
-@RestController
-public class ProjectA_application {
+@EnableAutoConfiguration
+@ComponentScan(basePackages = "cn.*")
+public class ProjectB_application {
+
     @Value("${server.port}")
     private String port;
-    @Autowired
-    private EurekaClient discoveryClient;
 
     public static void main(String[] args) {
-        SpringApplication.run(ProjectA_application.class, args);
+        SpringApplication.run(ProjectB_application.class, args);
     }
+    @Autowired
+    private EurekaClient discoveryClient;
 
     @RequestMapping("/hi")
     public String hello(@RequestParam String name) {

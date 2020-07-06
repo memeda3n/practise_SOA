@@ -1,17 +1,15 @@
-package cn.test.api.controller;
+package cn.b.test.api.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+//@RequestMapping("/feign")
 @RestController
-@RequestMapping("/user")
-public class UserController  {
-
+public class FeignTestController {
 
     @GetMapping("/getUser")
     public String getUser() {
-        return "new user";
+        return "userFeign.getUser()";
     }
 
 

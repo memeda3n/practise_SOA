@@ -10,7 +10,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>apis</module>
-        <module>feign_apis</module>
     </modules>
 
 
@@ -49,5 +48,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+
+
+        <dependency>
+            <groupId>cn.test.springcloud_a</groupId>
+            <artifactId>feign_apis</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 </project>
