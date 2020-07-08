@@ -32,3 +32,9 @@ eureka:
 ribbon:
   ReadTimeout: 10000
   eureka: true
+
+
+feign:
+  name: projectB
+  hystrix:
+    enabled: true
