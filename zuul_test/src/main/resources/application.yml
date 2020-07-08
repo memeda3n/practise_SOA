@@ -29,4 +29,5 @@ zuul:
 
 
 ribbon:
-  ReadTimeout: 100
+  ReadTimeout: 5000 #为连接建立后，服务返回值的超时时间。
+  ConnectTimeout: 1 #连接建立的超时时间
