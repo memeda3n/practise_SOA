@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: zuul_test
+  freemarker:
+    charset: UTF-8
 
 eureka:
   client:
